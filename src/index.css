@@ -1,0 +1,68 @@
+/* Import Nunito font at the top of index.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Apply Nunito font globally to all heading elements */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    /* Or if you want to apply it to everything */
+    body {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    /* Create a utility class for custom use */
+    .font-nunito {
+        font-family: 'Nunito', sans-serif;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* * This script block defines the custom color palette for Tailwind CSS
+ * based on the user's requirements. This configuration is crucial for
+ * using utility classes like 'bg-primary', 'text-text-dark', etc.
+ */
+@layer utilities {
+    .bg-primary {
+        background-color: #2E8B57; /* Eco Green */
+    }
+    .bg-primary-dark {
+        background-color: #1F5A36; /* Forest Green */
+    }
+    .bg-accent {
+        background-color: #0096C7; /* Clean Water Blue */
+    }
+    .bg-accent-light {
+        background-color: #CAF0F8; /* Sky Blue */
+    }
+    .bg-background {
+        background-color: #F2F2F2; /* Light Gray */
+    }
+    .text-text-dark {
+        color: #2A2A2A; /* Slate Gray */
+    }
+    .text-primary {
+        color: #2E8B57; /* Eco Green */
+    }
+    .text-accent {
+        color: #0096C7; /* Clean Water Blue */
+    }
+    .text-light {
+        color: #777777; /* Light text / Placeholder */
+    }
+    .text-charcoal {
+        color: #333333; /* Normal Text */
+    }
+    /* For footer background */
+    .bg-slate-gray {
+        background-color: #2A2A2A; /* Slate Gray */
+    }
+}

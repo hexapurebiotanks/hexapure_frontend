@@ -1,0 +1,40 @@
+{
+  "name": "Hexapure - Innovative Eco-Friendly Wastewater Solutions",
+  "short_name": "Hexapure",
+  "description": "Leading provider of sustainable wastewater treatment solutions including bio septic tanks, FRP tanks, and eco-friendly water management systems. Pioneering innovation in environmental responsibility.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1F5A36",
+  "icons": [
+    {
+      "src": "/hexapure.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "keywords": [
+    "Hexapure",
+    "wastewater treatment",
+    "bio septic tank",
+    "FRP tanks",
+    "eco-friendly solutions",
+    "sustainable water management",
+    "septic tank Kerala",
+    "anaerobic reactor",
+    "microorganism growth",
+    "environmental responsibility",
+    "innovation",
+    "quality",
+    "customer satisfaction",
+    "Arka Composites",
+    "Aquavault",
+    "Hexapit",
+    "BioReed+",
+    "tertiary treatment",
+    "reed bed filtration",
+    "percolation pit",
+    "sewage collection",
+    "water storage tank"
+  ]
+}
