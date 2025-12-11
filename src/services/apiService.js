@@ -1,5 +1,5 @@
 // API service for communicating with the Hexapure backend
-const API_BASE_URL = import.meta.env.BACKEND_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.BACKEND_URL || 'https://hexapurebackend.onrender.com';
 
 class ApiService {
     async sendContactForm(formData) {
