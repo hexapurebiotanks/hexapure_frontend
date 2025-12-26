@@ -37,21 +37,15 @@ const HexatreatProduct = ({ onContactClick }) => {
             ref={sectionRef}
             className={`py-10 md:py-20 bg-white relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03]"
-                 style={{
-                     backgroundImage: `url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')`,
-                     backgroundSize: 'cover'
-                 }}>
-                <svg width="100%" height="100%">
-                    <defs>
-                        <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="black" strokeWidth="0.5"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-            </div>
+            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+            <img
+                src="/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp&q=75"
+                width="800"
+                height="600"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.03]"
+                alt="Background pattern"
+            />
 
             <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
                 {/* 1. Product Header & Key Info */}

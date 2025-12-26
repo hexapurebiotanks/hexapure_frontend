@@ -137,17 +137,20 @@ const WhoWeAre = ({onContactClick}) => {
 
     return (
         <motion.section
-            className="pb-16 bg-background"
-            style={{
-                backgroundImage: "url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')",
-                backgroundSize: "100px",
-                backgroundPosition: "center",
-                backgroundRepeat: "repeat",
-            }}
+            className="pb-16 bg-background relative overflow-hidden z-30"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
         >
+            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+            <img
+                src="/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp&q=75"
+                width="800"
+                height="600"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.03]"
+                alt="Background pattern"
+            />
             <div className="max-w-6xl mx-auto px-4">
                 {/* --- Floating Icons (NEW LOCATION) --- */}
                 <motion.div

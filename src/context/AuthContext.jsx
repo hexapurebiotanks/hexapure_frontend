@@ -1,17 +1,5 @@
-// AuthContext.jsx (UPDATED)
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    updateProfile
-} from 'firebase/auth';
-// ** NEW: Firestore Imports **
-import { doc, setDoc } from 'firebase/firestore';
-// ** UPDATED: Import auth and db (Firestore) **
-// You may need to adjust the path to your config.js
-import { auth, db } from '../firebase/config.js' ;
+// AuthContext.jsx (UPDATED - DELAYED FIREBASE LOADING FOR PERFORMANCE)
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
 // Create the context
 const AuthContext = createContext();
@@ -24,67 +12,127 @@ export const useAuth = () => {
 // Provider component
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [firebaseLoaded, setFirebaseLoaded] = useState(false);
+    const [firebaseAuth, setFirebaseAuth] = useState(null);
+    const [firebaseDb, setFirebaseDb] = useState(null);
 
-    // 1. Firebase Sign Up - UPDATED to write to Firestore
-    const signup = (email, password, name) => {
-        // Create user with email and password
-        return createUserWithEmailAndPassword(auth, email, password)
-            .then(async (userCredential) => {
-                const user = userCredential.user;
+    // Lazy load Firebase only when needed
+    const loadFirebase = useCallback(async () => {
+        if (firebaseLoaded) return { auth: firebaseAuth, db: firebaseDb };
 
-                // 1a. Set display name on the Firebase Auth user object
-                await updateProfile(user, {
-                    displayName: name
-                });
+        try {
+            // Dynamically import Firebase modules
+            const [
+                { initializeApp },
+                { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile },
+                { getFirestore, doc, setDoc }
+            ] = await Promise.all([
+                import('firebase/app'),
+                import('firebase/auth'),
+                import('firebase/firestore')
+            ]);
 
-                // 1b. Create a document in the 'users' Firestore collection
-                // The document ID is set to the Firebase Auth user's UID (user.uid)
-                await setDoc(doc(db, "users", user.uid), {
-                    uid: user.uid,
-                    name: name,
-                    email: email,
-                    role: 'user', // Default role
-                    status: 'active', // ** User account status set to active **
-                    createdAt: new Date().toISOString(),
-                });
+            // Import Firebase config
+            const { firebaseConfig } = await import('../firebase/config.js');
 
-                return userCredential; // Return the user credential to the caller
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+
+            setFirebaseAuth(auth);
+            setFirebaseDb(db);
+            setFirebaseLoaded(true);
+
+            return { auth, db };
+        } catch (error) {
+            console.error('Failed to load Firebase:', error);
+            throw error;
+        }
+    }, [firebaseLoaded, firebaseAuth, firebaseDb]);
+
+    // 1. Firebase Sign Up - Load Firebase first
+    const signup = async (email, password, name) => {
+        const { auth, db } = await loadFirebase();
+        setLoading(true);
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Set display name
+            await updateProfile(user, { displayName: name });
+
+            // Create user document in Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                name: name,
+                email: email,
+                role: 'user',
+                status: 'active',
+                createdAt: new Date().toISOString(),
             });
+
+            return userCredential;
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // 2. Firebase Log In
-    const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+    // 2. Firebase Log In - Load Firebase first
+    const login = async (email, password) => {
+        const { auth } = await loadFirebase();
+        setLoading(true);
+
+        try {
+            return await signInWithEmailAndPassword(auth, email, password);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // 3. Firebase Log Out
-    const logout = () => {
-        return signOut(auth);
+    // 3. Firebase Log Out - Load Firebase first
+    const logout = async () => {
+        const { auth } = await loadFirebase();
+        setLoading(true);
+
+        try {
+            return await signOut(auth);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // 4. Set up Auth State Listener
+    // 4. Set up Auth State Listener - Only after Firebase is loaded
     useEffect(() => {
-        // Add a timeout to prevent infinite loading
-        const loadingTimeout = setTimeout(() => {
-            setLoading(false);
-        }, 10000); // 10 second timeout
+        let unsubscribe = () => {};
 
-        const unsubscribe = onAuthStateChanged(auth, user => {
-            setCurrentUser(user);
-            setLoading(false);
-            clearTimeout(loadingTimeout);
-        }, (error) => {
-            console.error('Auth state change error:', error);
-            setLoading(false);
-            clearTimeout(loadingTimeout);
-        });
+        const initAuth = async () => {
+            try {
+                const { auth } = await loadFirebase();
 
-        return () => {
-            unsubscribe();
-            clearTimeout(loadingTimeout);
+                const unsubscribeFn = onAuthStateChanged(auth, user => {
+                    setCurrentUser(user);
+                    setLoading(false);
+                }, (error) => {
+                    console.error('Auth state change error:', error);
+                    setLoading(false);
+                });
+
+                unsubscribe = unsubscribeFn;
+            } catch (error) {
+                console.error('Failed to initialize auth:', error);
+                setLoading(false);
+            }
         };
-    }, []);
+
+        // Only initialize if user interacts with auth-related features
+        // For now, we'll initialize immediately but this could be delayed further
+        initAuth();
+
+        return () => unsubscribe();
+    }, [loadFirebase]);
 
     // The context value that will be exposed to consumers
     const value = {
@@ -92,7 +140,7 @@ export const AuthProvider = ({ children }) => {
         login,
         signup,
         logout,
-        auth
+        loading
     };
 
     return (

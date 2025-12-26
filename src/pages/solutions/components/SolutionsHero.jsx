@@ -42,12 +42,14 @@ const SolutionsHero = () => {
 
     return (
         <div className="relative h-[400px] w-full z-10">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                    backgroundImage: `url('/.netlify/images?url=/images/banner2.png&w=1200&fm=webp')`
-                }}
+            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+            <img
+                src="/.netlify/images?url=/images/banner2.png&w=1200&fm=webp&q=75"
+                width="1200"
+                height="400"
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover"
+                alt="Hexapure solutions banner"
             />
 
             <div className="absolute inset-0 bg-primary/10 z-10" />

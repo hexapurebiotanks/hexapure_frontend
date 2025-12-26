@@ -97,15 +97,19 @@ const Hero = ({ onContactClick }) => {
             {/* --- Main Hero Background Area --- */}
             <div className="relative min-h-[60vh] md:min-h-[600px] flex items-center justify-center text-center text-white">
 
-                {/* Background Image with very slow zoom animation */}
-                <motion.div
-                    className="absolute inset-0 bg-cover bg-center z-0"
+                {/* Background Image with very slow zoom animation - REPLACED WITH IMG TAG FOR LCP */}
+                <motion.img
+                    src="/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp&q=75"
+                    width="1200"
+                    height="600"
+                    fetchpriority="high"
+                    loading="eager"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    alt="Hexapure wastewater treatment solutions"
                     style={{
-                        backgroundImage: `url('/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp')`
+                        transform: backgroundVariants.visible.scale ? `scale(${backgroundVariants.visible.scale})` : 'scale(1)',
+                        transition: 'transform 20s ease'
                     }}
-                    variants={backgroundVariants}
-                    initial="hidden"
-                    animate="visible"
                 />
 
                 {/* Gradient Overlay */}

@@ -123,12 +123,20 @@ const Standards = ({onContactClick}) => {
         <section>
             {/* 1. Parallax-like Top Section (CTA) */}
             <motion.div
-                className="relative py-12 md:py-20 bg-fixed bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: `url('/.netlify/images?url=/images/standardbg1.png&w=1200&fm=webp')` }}
+                className="relative py-12 md:py-20 overflow-hidden"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
             >
+                {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+                <img
+                    src="/.netlify/images?url=/images/standardbg1.png&w=1200&fm=webp&q=75"
+                    width="1200"
+                    height="400"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Hexapure standards background"
+                />
                 {/* Dark Overlay with subtle texture */}
                 <motion.div
                     className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"

@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import TopNavbar from "./shared/TopNavbar/TopNavbar.jsx";
-import Footer from "./shared/footer/Footer.jsx";
-import LandingPage from "./pages/landing/page.jsx";
-import SolutionsPage from "./pages/solutions/Page.jsx";
-import ContactPage from "./pages/contact/page.jsx";
-import TopBar from "./shared/Topbar/Topbar.jsx";
-import AboutPage from "./pages/about/page.jsx";
-import FloatingActionMenu from "./shared/FloatingActionMenu.jsx";
-import ScrollToTop from "./shared/ScrollToTop.jsx";
-import ProductsPage from "./pages/products/page.jsx";
-import AuthPage from "./pages/auth/auth.jsx";
-import NotFoundPage from "./pages/404/page.jsx";
-import ContactFormModal from "./modals/ContactFormModal.jsx";
-import AdminDashboard from "./pages/dashboard/Dashboard.jsx";
-import UserDashboard from "./pages/user/UserDashboard.jsx";
-import { AuthProvider } from './context/AuthContext.jsx'; // Check this path
-import ProtectedRoute from './context/ProtectedRoute.jsx'; // Check this path
+
+// Lazy load components for better performance
+const TopNavbar = lazy(() => import("./shared/TopNavbar/TopNavbar.jsx"));
+const Footer = lazy(() => import("./shared/footer/Footer.jsx"));
+const LandingPage = lazy(() => import("./pages/landing/page.jsx"));
+const SolutionsPage = lazy(() => import("./pages/solutions/Page.jsx"));
+const ContactPage = lazy(() => import("./pages/contact/page.jsx"));
+const TopBar = lazy(() => import("./shared/Topbar/Topbar.jsx"));
+const AboutPage = lazy(() => import("./pages/about/page.jsx"));
+const FloatingActionMenu = lazy(() => import("./shared/FloatingActionMenu.jsx"));
+const ScrollToTop = lazy(() => import("./shared/ScrollToTop.jsx"));
+const ProductsPage = lazy(() => import("./pages/products/page.jsx"));
+const AuthPage = lazy(() => import("./pages/auth/auth.jsx"));
+const NotFoundPage = lazy(() => import("./pages/404/page.jsx"));
+const ContactFormModal = lazy(() => import("./modals/ContactFormModal.jsx"));
+const AdminDashboard = lazy(() => import("./pages/dashboard/Dashboard.jsx"));
+const UserDashboard = lazy(() => import("./pages/user/UserDashboard.jsx"));
+const ProtectedRoute = lazy(() => import('./context/ProtectedRoute.jsx'));
+
+// Keep AuthProvider non-lazy as it's needed immediately
+import { AuthProvider } from './context/AuthContext.jsx';
+
+// Loading component
+const LoadingSpinner = () => (
+    <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+    </div>
+);
 
 const AppContent = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -175,7 +186,9 @@ function App() {
     return (
         <AuthProvider> {/* Wrap the entire app with AuthProvider */}
             <Router>
-                <AppContent />
+                <Suspense fallback={<LoadingSpinner />}>
+                    <AppContent />
+                </Suspense>
             </Router>
         </AuthProvider>
     );

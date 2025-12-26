@@ -38,13 +38,16 @@ const ContactHeroBanner = () => {
 
     return (
         <div className="relative h-[400px] w-full z-10">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/.netlify/images?url=/images/call.jpg&w=1200&fm=webp')" }}
-            >
-                <div className="absolute inset-0 bg-black/30"></div>
-            </div>
+            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+            <img
+                src="/.netlify/images?url=/images/call.jpg&w=1200&fm=webp&q=75"
+                width="1200"
+                height="400"
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover"
+                alt="Hexapure contact banner"
+            />
+            <div className="absolute inset-0 bg-black/30"></div>
 
             <div className="absolute inset-0 bg-primary/20 z-10" />
 

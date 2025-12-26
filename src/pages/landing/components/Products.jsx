@@ -74,26 +74,25 @@ const Products = () => {
     };
 
     return (
-        // Main Section: Background image is applied here
+        // Main Section: Background image replaced with img tag for performance
         <motion.section
             className="py-20 bg-background relative overflow-hidden"
-            style={{
-                backgroundImage: `url('/.netlify/images?url=/images/Tank-line-diagram-e1702289598280.png&w=1200&fm=webp')`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-            }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
         >
-            {/* FIX: New overlay using bg-black/5 for a subtle darkening effect. */}
-            <motion.div
-                className="absolute inset-0 bg-[#F2F2F2]/95 z-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+            <img
+                src="/.netlify/images?url=/images/Tank-line-diagram-e1702289598280.png&w=1200&fm=webp&q=75"
+                width="1200"
+                height="600"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-contain"
+                alt="Tank line diagram background"
             />
+            {/* FIX: New overlay using bg-black/5 for a subtle darkening effect. */}
+            <div className="absolute inset-0 bg-[#F2F2F2]/95 z-0"></div>
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* --- Section Header --- */}

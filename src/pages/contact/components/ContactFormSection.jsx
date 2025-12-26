@@ -68,17 +68,21 @@ const ContactFormSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp')` }}
-                >
-                    <motion.div
-                        className="absolute inset-0 bg-primary-dark opacity-50"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.5 }}
-                        transition={{ duration: 1.2 }}
-                    ></motion.div>
-                </div>
+                {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+                <img
+                    src="/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp&q=75"
+                    width="1200"
+                    height="350"
+                    loading="eager"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Contact form background"
+                />
+                <motion.div
+                    className="absolute inset-0 bg-primary-dark opacity-50"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.5 }}
+                    transition={{ duration: 1.2 }}
+                ></motion.div>
 
                 <motion.div
                     className="relative max-w-7xl mx-auto px-4 pt-16 text-center z-10"

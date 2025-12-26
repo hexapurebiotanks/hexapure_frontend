@@ -109,7 +109,7 @@ const CoreValues = () => {
 
     return (
         // Replaced MUI Box/Section with div/section and Tailwind classes
-        <section className="py-20 bg-white overflow-hidden">
+        <section className="py-20 bg-white overflow-hidden relative z-30">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* --- Section Header (Replaced Typography) --- */}
                 <motion.div

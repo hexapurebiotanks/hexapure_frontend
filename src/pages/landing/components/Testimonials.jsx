@@ -191,8 +191,11 @@ const Testimonials = () => {
                                         whileHover="hover"
                                     >
                                         <img
-                                            src={`https://i.pravatar.cc/150?img=${i + 10}`}
+                                            src={`https://i.pravatar.cc/70?img=${i + 10}`}
                                             alt={test.name}
+                                            width="70"
+                                            height="70"
+                                            loading="lazy"
                                             className="w-full h-full object-cover"
                                         />
                                     </motion.div>
