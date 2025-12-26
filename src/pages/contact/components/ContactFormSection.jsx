@@ -70,7 +70,7 @@ const ContactFormSection = () => {
             >
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/images/banner4.jpg')` }}
+                    style={{ backgroundImage: `url('/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp')` }}
                 >
                     <motion.div
                         className="absolute inset-0 bg-primary-dark opacity-50"
@@ -271,7 +271,7 @@ const ContactFormSection = () => {
                                 whileHover={{ scale: 1.15 }}
                                 className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center"
                             >
-                                <img src={`/images/${icon}.png`} alt={icon} className="w-6 h-6" />
+                                <img src={`/.netlify/images?url=/images/${icon}.png&w=50&fm=webp`} alt={icon} className="w-6 h-6" loading="lazy" />
                             </motion.a>
                         ))}
                     </div>

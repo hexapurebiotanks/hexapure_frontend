@@ -48,7 +48,7 @@ const BioSepticIntro = ({ onContactClick }) => {
             {/* Topographic Background Pattern Simulation - Retaining SVG as requested */}
             <div className="absolute inset-0 opacity-[0.09]"
                  style={{
-                     backgroundImage: `url('/images/bg_pattern.png')`, // Texture placeholder
+                    backgroundImage: `url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')`, // Texture placeholder
                      backgroundSize: 'cover'
                  }}>
                 <svg width="100%" height="100%">
@@ -97,8 +97,13 @@ const BioSepticIntro = ({ onContactClick }) => {
                         className="bg-background rounded-xl overflow-hidden shadow-xl border border-gray-200"
                     >
                         <img
-                            src="/images/overall.jpg"
+                            src="/.netlify/images?url=/images/overall.jpg&w=800&fm=webp"
+                            srcSet="/.netlify/images?url=/images/overall.jpg&w=400&fm=webp 400w, /.netlify/images?url=/images/overall.jpg&w=800&fm=webp 800w, /.netlify/images?url=/images/overall.jpg&w=1200&fm=webp 1200w"
+                            sizes="(max-width: 768px) 90vw, 50vw"
                             alt="Septic System Diagram"
+                            loading="lazy"
+                            width="800"
+                            height="600"
                             className="w-full h-auto object-cover rounded mix-blend-multiply"
                         />
                     </motion.div>

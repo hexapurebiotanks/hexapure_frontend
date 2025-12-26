@@ -76,7 +76,7 @@ const ProductDetails = () => {
         >
             <div className="absolute inset-0 opacity-[0.09]"
                  style={{
-                     backgroundImage: `url('/images/colorful-abstract-textured-background-design.jpg')`, // Texture placeholder
+                    backgroundImage: `url('/.netlify/images?url=/images/colorful-abstract-textured-background-design.jpg&w=800&fm=webp')`, // Texture placeholder
                      backgroundSize: 'cover'
                  }}>
                 <svg width="100%" height="100%">
@@ -102,7 +102,13 @@ const ProductDetails = () => {
                                 className="border border-gray-200 rounded-xl overflow-hidden shadow-xl"
                             >
                                 <img
-                                    src="/images/hexapure_features.png"
+                                    src="/.netlify/images?url=/images/hexapure_features.png&w=800&fm=webp"
+                                    srcSet="/.netlify/images?url=/images/hexapure_features.png&w=400&fm=webp 400w, /.netlify/images?url=/images/hexapure_features.png&w=800&fm=webp 800w, /.netlify/images?url=/images/hexapure_features.png&w=1200&fm=webp 1200w"
+                                    sizes="(max-width: 768px) 90vw, 50vw"
+                                    alt="Hexapure Features"
+                                    loading="lazy"
+                                    width="800"
+                                    height="600"
                                     className="w-full h-auto object-cover "
                                 />
                             </div>

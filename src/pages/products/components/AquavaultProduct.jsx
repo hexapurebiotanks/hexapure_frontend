@@ -74,7 +74,7 @@ const AquavaultProduct = ({ onContactClick }) => {
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.02]"
                  style={{
-                     backgroundImage: `url('/images/colorful-abstract-textured-background-design.jpg')`,
+                     backgroundImage: `url('/.netlify/images?url=/images/colorful-abstract-textured-background-design.jpg&w=800&fm=webp')`,
                      backgroundSize: 'cover'
                  }}>
             </div>
@@ -140,8 +140,13 @@ const AquavaultProduct = ({ onContactClick }) => {
                                 initial={{ scale: 1.05 }}
                                 whileInView={{ scale: 1 }}
                                 transition={{ duration: 0.7, ease: "easeOut" }}
-                                src="/images/landing_img3.jpeg"
+                                src="/.netlify/images?url=/images/landing_img3.jpeg&w=800&fm=webp"
+                                srcSet="/.netlify/images?url=/images/landing_img3.jpeg&w=400&fm=webp 400w, /.netlify/images?url=/images/landing_img3.jpeg&w=800&fm=webp 800w, /.netlify/images?url=/images/landing_img3.jpeg&w=1200&fm=webp 1200w"
+                                sizes="(max-width: 768px) 90vw, 50vw"
                                 alt="Aquavault Storage Tanks"
+                                loading="lazy"
+                                width="800"
+                                height="450"
                                 className="w-full aspect-video object-cover"
                             />
                         </div>
@@ -191,8 +196,11 @@ const AquavaultProduct = ({ onContactClick }) => {
                         className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto p-4 rounded-lg shadow-md"
                     >
                         <img
-                            src="/images/Hexatreat-Septic-Tank-Specifications.png"
+                            src="/.netlify/images?url=/images/Hexatreat-Septic-Tank-Specifications.png&w=800&fm=webp"
                             alt="Hexatreat Septic Tank Specifications"
+                            loading="lazy"
+                            width="800"
+                            height="600"
                             className="w-full h-auto max-h-96 object-contain rounded"
                         />
                     </motion.div>

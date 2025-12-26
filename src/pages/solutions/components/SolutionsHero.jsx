@@ -46,7 +46,7 @@ const SolutionsHero = () => {
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                    backgroundImage: `url('/images/banner2.png')`
+                    backgroundImage: `url('/.netlify/images?url=/images/banner2.png&w=1200&fm=webp')`
                 }}
             />
 

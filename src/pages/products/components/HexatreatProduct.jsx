@@ -40,7 +40,7 @@ const HexatreatProduct = ({ onContactClick }) => {
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03]"
                  style={{
-                     backgroundImage: `url('/images/bg_pattern.png')`,
+                     backgroundImage: `url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')`,
                      backgroundSize: 'cover'
                  }}>
                 <svg width="100%" height="100%">
@@ -60,8 +60,13 @@ const HexatreatProduct = ({ onContactClick }) => {
                     <div className="w-full lg:order-1">
                         <div className={`bg-background rounded-xl overflow-hidden shadow-xl md:shadow-2xl border border-gray-200 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:scale-[1.02] hover:shadow-3xl`}>
                             <img
-                                src="/images/landing_img5.jpeg"
+                                src="/.netlify/images?url=/images/landing_img5.jpeg&w=800&fm=webp"
+                                srcSet="/.netlify/images?url=/images/landing_img5.jpeg&w=400&fm=webp 400w, /.netlify/images?url=/images/landing_img5.jpeg&w=800&fm=webp 800w, /.netlify/images?url=/images/landing_img5.jpeg&w=1200&fm=webp 1200w"
+                                sizes="(max-width: 768px) 90vw, 50vw"
                                 alt="Hexapure Bio Septic Tank"
+                                loading="lazy"
+                                width="800"
+                                height="600"
                                 className="w-full h-auto min-h-[300px] md:min-h-[400px] object-cover transition-transform duration-500"
                             />
                         </div>
@@ -139,8 +144,11 @@ const HexatreatProduct = ({ onContactClick }) => {
 
                             <div className={`flex items-center justify-center h-64 md:h-96 transition-all duration-700 delay-850 ${isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
                                 <img
-                                    src="/images/Flow-process-diagram.png"
+                                    src="/.netlify/images?url=/images/Flow-process-diagram.png&w=800&fm=webp"
                                     alt="Hexapure Flow Process Diagram"
+                                    loading="lazy"
+                                    width="800"
+                                    height="600"
                                     className="w-full h-full object-contain rounded-lg"
                                 />
                             </div>
@@ -160,8 +168,11 @@ const HexatreatProduct = ({ onContactClick }) => {
 
                             <div className={`flex items-center justify-center h-64 md:h-96 transition-all duration-700 delay-900 ${isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
                                 <img
-                                    src="/images/Highlights.png"
+                                    src="/.netlify/images?url=/images/Highlights.png&w=800&fm=webp"
                                     alt="Hexatreat Product Highlights"
+                                    loading="lazy"
+                                    width="800"
+                                    height="600"
                                     className="w-full h-full object-contain rounded-lg"
                                 />
                             </div>
@@ -183,8 +194,11 @@ const HexatreatProduct = ({ onContactClick }) => {
 
                     <div className={`flex items-center justify-center bg-gray-50 w-full max-w-3xl mx-auto p-2 md:p-4 rounded-lg transition-all duration-700 delay-1050 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'}`}>
                         <img
-                            src="/images/Hexapure-Septic-Tank-Specifications.jpeg"
+                            src="/.netlify/images?url=/images/Hexapure-Septic-Tank-Specifications.jpeg&w=800&fm=webp"
                             alt="Hexatreat Septic Tank Specifications"
+                            loading="lazy"
+                            width="800"
+                            height="600"
                             className="w-full h-auto transition-transform duration-500"
                         />
                     </div>

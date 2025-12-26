@@ -21,9 +21,12 @@ const UserDashboard = () => {
                 {/* Logo */}
                 <div className="mb-6">
                     <img
-                        src="/images/hexapure_logo.png"
+                        src="/.netlify/images?url=/images/hexapure_logo.png&w=200&fm=webp"
                         alt="Hexapure Logo"
                         className="h-12 w-auto mx-auto mb-4"
+                        loading="eager"
+                        width="200"
+                        height="60"
                         onError={(e) => {
                             e.target.onerror = null;
                             e.target.src = "https://placehold.co/100x40/FFFFFF/333333?text=HEXAPURE";

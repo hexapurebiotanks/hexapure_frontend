@@ -78,7 +78,7 @@ const Products = () => {
         <motion.section
             className="py-20 bg-background relative overflow-hidden"
             style={{
-                backgroundImage: `url(/images/Tank-line-diagram-e1702289598280.png)`,
+                backgroundImage: `url('/.netlify/images?url=/images/Tank-line-diagram-e1702289598280.png&w=1200&fm=webp')`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -149,8 +149,13 @@ const Products = () => {
                             {/* Image Container */}
                             <div className="bg-background h-48 flex items-center justify-center border-b border-gray-100 overflow-hidden">
                                 <motion.img
-                                    src={prod.img}
+                                    src={`/.netlify/images?url=${prod.img}&w=400&fm=webp`}
+                                    srcSet={`/.netlify/images?url=${prod.img}&w=400&fm=webp 400w, /.netlify/images?url=${prod.img}&w=800&fm=webp 800w`}
+                                    sizes="(max-width: 768px) 90vw, 400px"
                                     alt={prod.title}
+                                    loading="lazy"
+                                    width="400"
+                                    height="300"
                                     className="max-h-full max-w-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                                     variants={imageVariants}
                                     initial="hidden"

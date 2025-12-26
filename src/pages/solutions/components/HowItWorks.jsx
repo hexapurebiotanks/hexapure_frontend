@@ -8,42 +8,42 @@ const steps = [
         day: "Day 1",
         title: "Facultative Reactor - I",
         description: "In a facultative reactor, microbes break down waste, and solids settle to produce cleaner water. The upper section is aerobic (with oxygen), while the lower section is anaerobic (without oxygen).",
-        image: "/images/step_img1.jpg", // Placeholder image for tank diagram
+        image: "/.netlify/images?url=/images/step_img1.jpg&w=800&fm=webp", // Placeholder image for tank diagram
     },
     {
         number: 2,
         day: "Day 2",
         title: "Facultative Reactor - II",
         description: "This continues the process with a combination of aerobic and anaerobic chambers. The bacteria present are capable of functioning in either environment, which significantly enhances the overall treatment efficiency.",
-        image: "/images/step_img2.jpg",
+        image: "/.netlify/images?url=/images/step_img2.jpg&w=800&fm=webp",
     },
     {
         number: 3,
         day: "Day 3",
         title: "Anaerobic Reactor - I",
         description: "The anaerobic reactor promotes further anaerobic digestion, effectively assisting in the breakdown of organic matter and the reduction of harmful pathogens. This aids in sludge treatment and improves waste management.",
-        image: "/images/step_img3.jpg",
+        image: "/.netlify/images?url=/images/step_img3.jpg&w=800&fm=webp",
     },
     {
         number: 4,
         day: "Day 4",
         title: "Anaerobic Reactor - II",
         description: "This reactor efficiently treats wastewater by enhancing the overall effectiveness of the system and is designed to handle higher sludge volumes and more complex waste types.",
-        image: "/images/step_img4.jpg",
+        image: "/.netlify/images?url=/images/step_img4.jpg&w=800&fm=webp",
     },
     {
         number: 5,
         day: "Day 5",
         title: "Sludge Polishing Reactor",
         description: "This reactor continues anaerobic digestion, fostering the further breakdown of organic matter. It enhances the quality of effluent by removing remaining solids and reducing residual contaminants.",
-        image: "/images/step_img5.jpg",
+        image: "/.netlify/images?url=/images/step_img5.jpg&w=800&fm=webp",
     },
     {
         number: 6,
         day: "Day 6",
         title: "Settling Tank",
         description: "The Settling Tank facilitates sedimentation, allowing solid particles to settle at the bottom, resulting in clear water in the final stage. This step effectively removes suspended solids before discharge.",
-        image: "/images/step_img6.jpg",
+        image: "/.netlify/images?url=/images/step_img6.jpg&w=800&fm=webp",
     },
 ];
 

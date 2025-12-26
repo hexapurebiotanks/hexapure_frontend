@@ -58,8 +58,13 @@ const ProductSection = ({ title, subtitle, description, imageSrc, isReversed, ch
                         {/* Image container with rounded corners and shadow, matching UI template */}
                         <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 transform hover:scale-[1.02] transition duration-500 ease-in-out">
                             <img
-                                src={imageSrc}
+                                src={`/.netlify/images?url=${imageSrc}&w=800&fm=webp`}
+                                srcSet={`/.netlify/images?url=${imageSrc}&w=400&fm=webp 400w, /.netlify/images?url=${imageSrc}&w=800&fm=webp 800w, /.netlify/images?url=${imageSrc}&w=1200&fm=webp 1200w`}
+                                sizes="(max-width: 768px) 90vw, 50vw"
                                 alt={title}
+                                loading="lazy"
+                                width="800"
+                                height="600"
                                 className="w-full h-auto object-cover"
                                 // Placeholder for image errors
                                 onError={(e) => {

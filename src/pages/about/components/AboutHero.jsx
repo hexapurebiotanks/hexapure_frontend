@@ -1,10 +1,10 @@
 // pages/about/components/AboutHero.jsx
 import React from "react";
-// 1. 导入 framer-motion 的 motion
+
 import { motion } from "framer-motion";
 
 const AboutHero = () => {
-    // 2. 定义主卡片容器的动画变体
+   
     const cardVariants = {
         hidden: {
             y: "100%",
@@ -25,7 +25,7 @@ const AboutHero = () => {
         }
     };
 
-    // 3. 定义文本元素的动画变体
+
     const textVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -43,7 +43,7 @@ const AboutHero = () => {
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                    backgroundImage: `url('/images/33158-1.jpg')` // You can use banner2.png or create a new one
+                    backgroundImage: `url('/.netlify/images?url=/images/33158-1.webp&w=1200&fm=webp')` // You can use banner2.png or create a new one
                 }}
             />
 

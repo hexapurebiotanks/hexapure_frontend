@@ -137,7 +137,7 @@ const OurStory = () => {
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03]"
                  style={{
-                     backgroundImage: `url('/images/bg_pattern.png')`,
+                    backgroundImage: `url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')`,
                      backgroundSize: 'cover'
                  }}>
                 <svg width="100%" height="100%">
@@ -163,8 +163,13 @@ const OurStory = () => {
                             whileHover="hover"
                         >
                             <img
-                                src="/images/aboutus_img_hexapure.jpeg"
+                                src="/.netlify/images?url=/images/aboutus_img_hexapure.webp&w=800&fm=webp"
+                                srcSet="/.netlify/images?url=/images/aboutus_img_hexapure.webp&w=400&fm=webp 400w, /.netlify/images?url=/images/aboutus_img_hexapure.webp&w=800&fm=webp 800w, /.netlify/images?url=/images/aboutus_img_hexapure.webp&w=1200&fm=webp 1200w"
+                                sizes="(max-width: 768px) 90vw, 50vw"
                                 alt="Hexapure Innovation"
+                                loading="lazy"
+                                width="800"
+                                height="600"
                                 className="w-full h-auto object-cover rounded mix-blend-multiply"
                             />
                         </motion.div>

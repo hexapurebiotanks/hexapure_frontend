@@ -124,7 +124,7 @@ const Standards = ({onContactClick}) => {
             {/* 1. Parallax-like Top Section (CTA) */}
             <motion.div
                 className="relative py-12 md:py-20 bg-fixed bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: `url('/images/standardbg1.png')` }}
+                style={{ backgroundImage: `url('/.netlify/images?url=/images/standardbg1.png&w=1200&fm=webp')` }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}

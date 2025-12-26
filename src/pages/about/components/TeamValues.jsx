@@ -284,7 +284,7 @@ const TeamValues = ({ onContactClick }) => {
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03]"
                  style={{
-                     backgroundImage: `url('/images/bg_pattern.png')`,
+                    backgroundImage: `url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')`,
                      backgroundSize: 'cover'
                  }}>
             </div>

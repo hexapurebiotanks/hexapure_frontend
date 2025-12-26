@@ -189,9 +189,12 @@ const AuthPage = () => {
                 {/* Header Section (Minimalist & Compact) */}
                 <div className="text-center mb-6">
                     <img
-                        src={logoSrc}
+                        src="/.netlify/images?url=/images/hexapure_logo.png&w=200&fm=webp"
                         alt="App Logo"
                         className="h-10 w-auto mx-auto mb-3"
+                        loading="eager"
+                        width="200"
+                        height="50"
                         onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/100x40/FFFFFF/333333?text=APP"; }}
                     />
                     <h2 className="text-xl font-bold text-text-dark tracking-tight">

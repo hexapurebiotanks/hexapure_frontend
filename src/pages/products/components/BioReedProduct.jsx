@@ -113,7 +113,7 @@ const BioReedProduct = ({ onContactClick }) => {
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.02]"
                  style={{
-                     backgroundImage: `url('/images/colorful-abstract-textured-background-design.jpg')`,
+                     backgroundImage: `url('/.netlify/images?url=/images/colorful-abstract-textured-background-design.jpg&w=800&fm=webp')`,
                      backgroundSize: 'cover'
                  }}>
             </div>
@@ -182,8 +182,13 @@ const BioReedProduct = ({ onContactClick }) => {
                                     ease: "easeOut",
                                     opacity: { duration: 0.6 }
                                 }}
-                                src="/images/landing_img4.jpeg"
+                                src="/.netlify/images?url=/images/landing_img4.jpeg&w=800&fm=webp"
+                                srcSet="/.netlify/images?url=/images/landing_img4.jpeg&w=400&fm=webp 400w, /.netlify/images?url=/images/landing_img4.jpeg&w=800&fm=webp 800w, /.netlify/images?url=/images/landing_img4.jpeg&w=1200&fm=webp 1200w"
+                                sizes="(max-width: 768px) 90vw, 50vw"
                                 alt="BioReed+ Filtration System"
+                                loading="lazy"
+                                width="800"
+                                height="450"
                                 className="w-full aspect-video object-cover"
                             />
                         </motion.div>
@@ -244,8 +249,11 @@ const BioReedProduct = ({ onContactClick }) => {
                         className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300"
                     >
                         <img
-                            src="/images/Hexatreat-Septic-Tank-Specifications.png"
+                            src="/.netlify/images?url=/images/Hexatreat-Septic-Tank-Specifications.png&w=800&fm=webp"
                             alt="Hexatreat Septic Tank Specifications"
+                            loading="lazy"
+                            width="800"
+                            height="600"
                             className="w-full h-auto max-h-96 object-contain rounded-lg"
                         />
                     </motion.div>

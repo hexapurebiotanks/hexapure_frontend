@@ -139,7 +139,7 @@ const WhoWeAre = ({onContactClick}) => {
         <motion.section
             className="pb-16 bg-background"
             style={{
-                backgroundImage: "url('/images/bg_pattern.png')",
+                backgroundImage: "url('/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp')",
                 backgroundSize: "100px",
                 backgroundPosition: "center",
                 backgroundRepeat: "repeat",
@@ -253,8 +253,13 @@ const WhoWeAre = ({onContactClick}) => {
                                 transition={{ duration: 0.3 }}
                             >
                                 <motion.img
-                                    src="/images/wwa.png"
+                                    src="/.netlify/images?url=/images/wwa.png&w=800&fm=webp"
+                                    srcSet="/.netlify/images?url=/images/wwa.png&w=400&fm=webp 400w, /.netlify/images?url=/images/wwa.png&w=800&fm=webp 800w, /.netlify/images?url=/images/wwa.png&w=1200&fm=webp 1200w"
+                                    sizes="(max-width: 768px) 90vw, 50vw"
                                     alt="Tanks"
+                                    loading="lazy"
+                                    width="800"
+                                    height="600"
                                     className="rounded-xl w-full object-cover"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.4 }}

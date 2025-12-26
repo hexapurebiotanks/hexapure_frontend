@@ -158,9 +158,12 @@ const TopNavbar = () => {
                         <NavLink to="/">
                             <div className="flex items-center gap-2">
                                 <img
-                                    src="/images/hexapure_logo.png"
+                                    src="/.netlify/images?url=/images/hexapure_logo.webp&w=200&fm=webp"
                                     alt="Hexapure Logo"
                                     className="h-10 w-auto"
+                                    loading="eager"
+                                    width="200"
+                                    height="50"
                                 />
                             </div>
                         </NavLink>

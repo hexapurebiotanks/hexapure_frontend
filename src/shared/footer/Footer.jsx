@@ -95,10 +95,13 @@ const Footer = () => (
                         {/* Use NavLink to make the logo go to the home page */}
                         <NavLink to="/">
                             <img
-                                src="/images/footer_logo_withoutbg.png" // Path to the logo in the public folder
+                                src="/.netlify/images?url=/images/footer_logo_withoutbg.webp&w=200&fm=webp"
                                 alt="Hexapure Logo"
                                 // Set height and potentially width, adjust classes as needed for your specific SVG size
                                 className="h-8 md:h-10 w-auto "
+                                loading="lazy"
+                                width="200"
+                                height="40"
                                 // `filter brightness-[1.5]` is added to make the logo visible against the dark background, adjust or remove if your SVG is white.
                             />
                         </NavLink>

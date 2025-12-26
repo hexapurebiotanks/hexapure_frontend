@@ -46,7 +46,7 @@ const ProductsHero = () => {
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                    backgroundImage: `url('/images/banner.png')`
+                    backgroundImage: `url('/.netlify/images?url=/images/banner.png&w=1200&fm=webp')`
                 }}
             />
 

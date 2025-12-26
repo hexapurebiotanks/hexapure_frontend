@@ -41,7 +41,7 @@ const ContactHeroBanner = () => {
             {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/images/call.jpg')" }}
+                style={{ backgroundImage: "url('/.netlify/images?url=/images/call.jpg&w=1200&fm=webp')" }}
             >
                 <div className="absolute inset-0 bg-black/30"></div>
             </div>

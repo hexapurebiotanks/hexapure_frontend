@@ -101,7 +101,7 @@ const Hero = ({ onContactClick }) => {
                 <motion.div
                     className="absolute inset-0 bg-cover bg-center z-0"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+                        backgroundImage: `url('/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp')`
                     }}
                     variants={backgroundVariants}
                     initial="hidden"
