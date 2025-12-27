@@ -1,8 +1,19 @@
 // page.jsx
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+
+// Keep hero section non-lazy as it's above the fold
 import ContactHeroBanner from "./components/HeroBanner.jsx";
-import ContactInfoSection from "./components/InfoSection.jsx";
-import ContactFormSection from "./components/ContactFormSection.jsx"; // Import the new component
+
+// Lazy load components below the fold
+const ContactInfoSection = lazy(() => import("./components/InfoSection.jsx"));
+const ContactFormSection = lazy(() => import("./components/ContactFormSection.jsx"));
+
+// Loading component for sections
+const SectionLoader = () => (
+    <div className="flex items-center justify-center py-16">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    </div>
+);
 
 const ContactPage = () => {
     return (
@@ -10,14 +21,18 @@ const ContactPage = () => {
 
             {/* --- SECTION 1: Hero & Map --- */}
 
-            {/* Hero Banner */}
+            {/* Hero Banner - Above the fold */}
             <ContactHeroBanner />
 
-            {/* Info & Map Container */}
-            <ContactInfoSection />
+            {/* Info & Map Container - Below the fold */}
+            <Suspense fallback={<SectionLoader />}>
+                <ContactInfoSection />
+            </Suspense>
 
-            {/* --- SECTION 2: Form Section --- */}
-            <ContactFormSection />
+            {/* --- SECTION 2: Form Section - Below the fold --- */}
+            <Suspense fallback={<SectionLoader />}>
+                <ContactFormSection />
+            </Suspense>
 
         </div>
     );

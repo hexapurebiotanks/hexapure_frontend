@@ -11,8 +11,8 @@ const FloatingActionMenu = ({ onContactClick }) => {
     };
 
     const handleWhatsAppClick = () => {
-        // Replace with your WhatsApp number
-        window.open('https://wa.me/8903488003', '_blank');
+        // Replace with your WhatsApp number (Indian country code +91)
+        window.open('https://wa.me/918903488003', '_blank');
     };
 
     const handleContactClick = () => {

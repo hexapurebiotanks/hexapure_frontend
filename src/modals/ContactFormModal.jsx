@@ -1,6 +1,6 @@
 // components/ContactFormModal.jsx
 import React, { useState } from 'react';
-import apiService from '../services/apiService.js';
+import { addContact } from '../services/firestoreService.js';
 
 const ContactFormModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -24,8 +24,21 @@ const ContactFormModal = ({ isOpen, onClose }) => {
         setSubmitStatus(null);
 
         try {
-            const result = await apiService.sendContactForm(formData);
+            // Save to Firestore first
+            await addContact(formData);
+
+            // Show success immediately
             setSubmitStatus('success');
+
+            // Send email in background (fire-and-forget)
+            fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            }).catch((error) => {
+                // Log error silently - don't show to user
+                console.error('Email sending failed:', error);
+            });
 
             // Reset form and close modal after success
             setTimeout(() => {

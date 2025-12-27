@@ -1,5 +1,4 @@
 // utils/firestoreService.js
-import { db } from '../firebase/config.js';
 import {
     collection,
     addDoc,
@@ -50,6 +49,8 @@ const setCachedData = (key, data) => {
 
 export const addContact = async (contactData) => {
     try {
+        const { initFirebase } = await import('../firebase/config');
+        const { db } = initFirebase();
         const docRef = await addDoc(collection(db, 'contacts'), {
             ...contactData,
             createdAt: serverTimestamp(),
@@ -69,13 +70,15 @@ export const addContact = async (contactData) => {
 };
 
 // Real-time contacts listener with caching
-export const subscribeToContacts = (callback) => {
+export const subscribeToContacts = async (callback) => {
     // Try to get cached data first
     const cachedContacts = getCachedData(CACHE_KEYS.CONTACTS);
     if (cachedContacts) {
         callback(cachedContacts);
     }
 
+    const { initFirebase } = await import('../firebase/config');
+    const { db } = initFirebase();
     const q = query(
         collection(db, 'contacts'),
         orderBy('createdAt', 'desc')
@@ -99,12 +102,14 @@ export const subscribeToContacts = (callback) => {
 };
 
 // Real-time users listener with caching
-export const subscribeToUsers = (callback) => {
+export const subscribeToUsers = async (callback) => {
     const cachedUsers = getCachedData(CACHE_KEYS.USERS);
     if (cachedUsers) {
         callback(cachedUsers);
     }
 
+    const { initFirebase } = await import('../firebase/config');
+    const { db } = initFirebase();
     const q = query(
         collection(db, 'users'),
         orderBy('createdAt', 'desc')
@@ -125,13 +130,13 @@ export const subscribeToUsers = (callback) => {
 };
 
 // Stats calculation with caching
-export const subscribeToStats = (callback) => {
+export const subscribeToStats = async (callback) => {
     const cachedStats = getCachedData(CACHE_KEYS.STATS);
     if (cachedStats) {
         callback(cachedStats);
     }
 
-    const unsubscribeContacts = subscribeToContacts((contacts) => {
+    const unsubscribeContacts = await subscribeToContacts((contacts) => {
         const stats = calculateStats(contacts);
         setCachedData(CACHE_KEYS.STATS, stats);
         callback(stats);

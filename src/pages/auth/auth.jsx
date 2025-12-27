@@ -6,7 +6,6 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
 // Firestore imports for role checking
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase/config.js';
 // Using MUI Icons as requested
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -51,6 +50,8 @@ const AuthPage = () => {
         const checkUserRoleAndRedirect = async () => {
             if (currentUser) {
                 try {
+                    const { initFirebase } = await import("../../firebase/config");
+                    const { db } = initFirebase();
                     // Get user document from Firestore
                     const userDoc = await getDoc(doc(db, 'users', currentUser.uid));
                     if (userDoc.exists()) {

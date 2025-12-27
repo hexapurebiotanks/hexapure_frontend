@@ -84,16 +84,16 @@ const Hero = ({ onContactClick }) => {
     const backgroundVariants = {
         hidden: { scale: 1 },
         visible: {
-            scale: 1.1,
+            scale: 1.05, // Reduced scale for subtlety
             transition: {
-                duration: 20,
-                ease: "linear"
+                duration: 0.3, // Fast GPU-friendly animation
+                ease: "ease-out"
             }
         }
     };
 
     return (
-        <section className="relative w-full overflow-hidden">
+        <section className="relative w-full overflow-hidden z-10">
             {/* --- Main Hero Background Area --- */}
             <div className="relative min-h-[60vh] md:min-h-[600px] flex items-center justify-center text-center text-white">
 
@@ -102,18 +102,19 @@ const Hero = ({ onContactClick }) => {
                     src="/.netlify/images?url=/images/banner4.jpg&w=1200&fm=webp&q=75"
                     width="1200"
                     height="600"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     loading="eager"
-                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover"
                     alt="Hexapure wastewater treatment solutions"
                     style={{
                         transform: backgroundVariants.visible.scale ? `scale(${backgroundVariants.visible.scale})` : 'scale(1)',
-                        transition: 'transform 20s ease'
+                        transition: 'transform 300ms ease-out',
+                        willChange: 'transform' // GPU acceleration
                     }}
                 />
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1F5A36]/40 to-[#2E8B57]/40 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1F5A36]/60 to-[#2E8B57]/60 z-10" />
 
                 {/* --- Hero Text Content --- */}
                 <motion.div

@@ -136,13 +136,14 @@ const WhoWeAre = ({onContactClick}) => {
     };
 
     return (
+
         <motion.section
-            className="pb-16 bg-background relative overflow-hidden z-30"
+            className="pb-16 bg-background relative overflow-visible z-30"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
         >
-            {/* Background Image - REPLACED WITH IMG TAG FOR PERFORMANCE */}
+        
             <img
                 src="/.netlify/images?url=/images/bg_pattern.png&w=800&fm=webp&q=75"
                 width="800"
@@ -154,15 +155,15 @@ const WhoWeAre = ({onContactClick}) => {
             <div className="max-w-6xl mx-auto px-4">
                 {/* --- Floating Icons (NEW LOCATION) --- */}
                 <motion.div
-                    className="-mt-9 md:-mt-10 mb-16 relative z-30"
+                    className="-mt-0 md:-mt-10 mb-16 relative z-50"
                     variants={containerVariants}
                 >
                     <div className="max-w-7xl mx-auto px-4">
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 px-2">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-12 gap-x-4 px-2">
                             {features.map((item, index) => (
                                 <motion.div
                                     key={index}
-                                    className="flex flex-col items-center group text-center"
+                                    className="flex flex-col items-center group text-center -mt-9"
                                     variants={iconVariants}
                                     whileHover={{
                                         y: -10,
@@ -256,8 +257,8 @@ const WhoWeAre = ({onContactClick}) => {
                                 transition={{ duration: 0.3 }}
                             >
                                 <motion.img
-                                    src="/.netlify/images?url=/images/wwa.png&w=800&fm=webp"
-                                    srcSet="/.netlify/images?url=/images/wwa.png&w=400&fm=webp 400w, /.netlify/images?url=/images/wwa.png&w=800&fm=webp 800w, /.netlify/images?url=/images/wwa.png&w=1200&fm=webp 1200w"
+                                    src="/.netlify/images?url=/images/aboutus_img_hexapure.webp&w=800&fm=webp"
+                                    srcSet="/.netlify/images?url=/images/aboutus_img_hexapure.webp&w=400&fm=webp 400w, /.netlify/images?url=/images/aboutus_img_hexapure.webp&w=800&fm=webp 800w, /.netlify/images?url=/images/aboutus_img_hexapure.webp&w=1200&fm=webp 1200w"
                                     sizes="(max-width: 768px) 90vw, 50vw"
                                     alt="Tanks"
                                     loading="lazy"
@@ -279,7 +280,7 @@ const WhoWeAre = ({onContactClick}) => {
                                 }}
                             >
                                 <span className="text-text-dark font-bold text-sm md:text-lx lg:text-2xl">9+</span>
-                                <span className="text-[8px] md:text-[10px]lg:text-[12px] text-primary text-center leading-tight">Years Of<br/>Experience</span>
+                                <span className="text-[10px] md:text-[12px] text-gray-900 font-medium text-center leading-tight">Years Of<br/>Experience</span>
                             </motion.div>
                         </div>
                     </motion.div>

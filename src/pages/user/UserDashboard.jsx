@@ -69,7 +69,7 @@ const UserDashboard = () => {
                         Explore Our Website
                     </button>
                     <button
-                        onClick={() => navigate('/contact-us')}
+                        onClick={() => navigate('/contact')}
                         className="w-full bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-4 rounded-lg transition duration-300"
                     >
                         Contact Us

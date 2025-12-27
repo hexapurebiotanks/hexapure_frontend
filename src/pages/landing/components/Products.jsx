@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Products = () => {
     const navigate = useNavigate();
     const products = [
-        { title: "Hexapure Bio Septic tank", desc: "The 6-Chamber Design: Unleash Cleaner Water, Reduce Waste, and Embrace Nature", img: "/images/landing_img1.jpeg" },
+        { title: "Hexapure Bio Septic tank", desc: "The 6-Chamber Design: Unleash Cleaner Water, Reduce Waste, and Embrace Nature", img: "/images/landing_img5.jpeg" },
         { title: "Hexapit", desc: "Rethink Recharge: Unlocking Nature's Secrets with the Hexapit.", img: "/images/landing_img2.jpeg" },
         { title: "Aquavault", desc: "Sustainable Water Storage Solutions: Preserving water and treated septic resources.", img: "/images/landing_img3.jpeg" },
         { title: "BioReed+", desc: "Nature's Filter: Reed Beds Beyond Tertiary Treatment", img: "/images/landing_img4.jpeg" },

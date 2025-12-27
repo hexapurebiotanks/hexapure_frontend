@@ -1,11 +1,21 @@
-import React, {useRef} from 'react';
+import React, {useRef, Suspense, lazy} from 'react';
 import { motion, useInView } from "framer-motion";
+
+// Keep hero section non-lazy as it's above the fold
 import ProductsHero from "./components/ProductsHero.jsx";
 
-import HexatreatProduct from "./components/HexatreatProduct.jsx";
-import AquavaultProduct from "./components/AquavaultProduct.jsx";
-import HexapitProduct from "./components/HexapitProduct.jsx";
-import BioReedProduct from "./components/BioReedProduct.jsx";
+// Lazy load heavy product components
+const HexatreatProduct = lazy(() => import("./components/HexatreatProduct.jsx"));
+const AquavaultProduct = lazy(() => import("./components/AquavaultProduct.jsx"));
+const HexapitProduct = lazy(() => import("./components/HexapitProduct.jsx"));
+const BioReedProduct = lazy(() => import("./components/BioReedProduct.jsx"));
+
+// Loading component for product sections
+const ProductLoader = () => (
+    <div className="flex items-center justify-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+    </div>
+);
 
 
 // Data for the Product Sections based on reference images
@@ -117,10 +127,23 @@ const ProductsPage = ({ onContactClick }) => {
                 <h2 className="text-text-dark font-extrabold text-4xl md:text-6xl text-center mt-6 max-w-5xl mx-auto px-4">
                     Our Products
                 </h2>
-                <HexatreatProduct onContactClick={onContactClick} />
-                <AquavaultProduct onContactClick={onContactClick} />
-                <HexapitProduct onContactClick={onContactClick} />
-                <BioReedProduct onContactClick={onContactClick} />
+
+                {/* Lazy load product components with Suspense */}
+                <Suspense fallback={<ProductLoader />}>
+                    <HexatreatProduct onContactClick={onContactClick} />
+                </Suspense>
+
+                <Suspense fallback={<ProductLoader />}>
+                    <AquavaultProduct onContactClick={onContactClick} />
+                </Suspense>
+
+                <Suspense fallback={<ProductLoader />}>
+                    <HexapitProduct onContactClick={onContactClick} />
+                </Suspense>
+
+                <Suspense fallback={<ProductLoader />}>
+                    <BioReedProduct onContactClick={onContactClick} />
+                </Suspense>
             </motion.div>
 
             {/*<div className="relative pt-20 bg-white">*/}

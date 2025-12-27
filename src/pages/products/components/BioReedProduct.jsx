@@ -248,7 +248,7 @@ const BioReedProduct = ({ onContactClick }) => {
                             delay: 0.4
                         }}
                         viewport={{ once: true, amount: 0.3 }}
-                        className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300"
+                        className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300"
                     >
                         <img
                             src="/.netlify/images?url=/images/Hexatreat-Septic-Tank-Specifications.png&w=800&fm=webp"

@@ -31,8 +31,8 @@ const TopNavbar = () => {
             href: "/documents/Hexapure-Brochure.pdf",
             isExternal: true // Mark this as external file
         },
-        { text: "Contact Us", href: "/contact-us" },
-        { text: "About Us", href: "/about-us" },
+        { text: "Contact Us", href: "/contact" },
+        { text: "About Us", href: "/about" },
     ];
 
     // --- Helper function to determine if a link is an actual route ---

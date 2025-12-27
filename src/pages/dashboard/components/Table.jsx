@@ -1,7 +1,6 @@
 // Table.jsx (Updated to use real data)
 import React, { useState } from 'react';
 import { updateDoc, doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/config.js';
 import { MoreVert, Edit, Delete, Close } from '@mui/icons-material';
 
 const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
@@ -81,6 +80,8 @@ const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
             );
 
             // Update in Firestore
+            const { initFirebase } = await import('../../../firebase/config');
+            const { db } = initFirebase();
             await updateDoc(doc(db, 'contacts', id), {
                 status: newStatus,
                 updatedAt: new Date()
@@ -100,6 +101,8 @@ const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
                 )
             );
 
+            const { initFirebase } = await import('../../../firebase/config');
+            const { db } = initFirebase();
             await updateDoc(doc(db, 'users', id), {
                 status: newStatus,
                 updatedAt: new Date()
@@ -118,6 +121,8 @@ const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
                 )
             );
 
+            const { initFirebase } = await import('../../../firebase/config');
+            const { db } = initFirebase();
             await updateDoc(doc(db, 'users', id), {
                 role: newRole,
                 updatedAt: new Date()
@@ -169,6 +174,8 @@ const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
         setDeletingItem(null);
 
         try {
+            const { initFirebase } = await import('../../../firebase/config');
+            const { db } = initFirebase();
             if (itemToDelete.type === 'user') {
                 // Optimistic update - remove from UI immediately
                 setLocalUsers(prevUsers => prevUsers.filter(user => user.id !== itemToDelete.item.id));
@@ -195,6 +202,8 @@ const UsersTable = ({ activeTab, contacts, users, searchQuery }) => {
     const handleEditSubmit = async (e) => {
         e.preventDefault();
         try {
+            const { initFirebase } = await import('../../../firebase/config');
+            const { db } = initFirebase();
             await updateDoc(doc(db, 'users', editingUser.id), {
                 name: editForm.name,
                 email: editForm.email,

@@ -195,10 +195,10 @@ const AquavaultProduct = ({ onContactClick }) => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto p-4 rounded-lg shadow-md"
+                        className="flex items-center justify-center bg-gray-50 w-11/12 max-w-3xl mx-auto rounded-lg shadow-md"
                     >
                         <img
-                            src="/.netlify/images?url=/images/Hexatreat-Septic-Tank-Specifications.png&w=800&fm=webp"
+                            src="/.netlify/images?url=/images/Aquavault-specificatio.png&w=800&fm=webp"
                             alt="Hexatreat Septic Tank Specifications"
                             loading="lazy"
                             width="800"

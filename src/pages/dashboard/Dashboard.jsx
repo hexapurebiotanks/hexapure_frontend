@@ -25,24 +25,33 @@ const Dashboard = () => {
 
     useEffect(() => {
         // Set up real-time listeners
-        const unsubscribeContacts = subscribeToContacts((data) => {
-            setContacts(data);
-            setLoading(false);
-        });
+        const setupListeners = async () => {
+            const unsubscribeContacts = await subscribeToContacts((data) => {
+                setContacts(data);
+                setLoading(false);
+            });
 
-        const unsubscribeUsers = subscribeToUsers((data) => {
-            setUsers(data);
-        });
+            const unsubscribeUsers = await subscribeToUsers((data) => {
+                setUsers(data);
+            });
 
-        const unsubscribeStats = subscribeToStats((data) => {
-            setStats(data);
-        });
+            const unsubscribeStats = await subscribeToStats((data) => {
+                setStats(data);
+            });
+
+            // Cleanup function
+            return () => {
+                unsubscribeContacts();
+                unsubscribeUsers();
+                unsubscribeStats();
+            };
+        };
+
+        const cleanup = setupListeners();
 
         // Cleanup function
         return () => {
-            unsubscribeContacts();
-            unsubscribeUsers();
-            unsubscribeStats();
+            cleanup.then(cleanupFn => cleanupFn && cleanupFn());
         };
     }, []);
 
