@@ -237,7 +237,6 @@ exports.handler = async (event, context) => {
     };
 
     await apiInstance.sendTransacEmail(userEmailData);
-    console.log("Confirmation email sent to user:", formData.email);
 
     // Send notification email to admin
     const adminEmailData = {
@@ -247,7 +246,6 @@ exports.handler = async (event, context) => {
     };
 
     await apiInstance.sendTransacEmail(adminEmailData);
-    console.log("Notification email sent to admin");
 
     return {
       statusCode: 200,

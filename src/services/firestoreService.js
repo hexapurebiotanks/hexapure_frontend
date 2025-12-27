@@ -56,7 +56,6 @@ export const addContact = async (contactData) => {
             createdAt: serverTimestamp(),
             status: 'new'
         });
-        console.log('Registration saved with ID: ', docRef.id);
 
         // Invalidate contacts cache since we added new data
         localStorage.removeItem(CACHE_KEYS.CONTACTS);
