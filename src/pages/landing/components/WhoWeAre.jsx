@@ -310,7 +310,7 @@ const WhoWeAre = ({onContactClick}) => {
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
                         >
-                            Hexapure was founded in 2015 with the vision of revolutionizing the wastewater treatment industry. As a subsidiary of Arka Composites, a renowned player in the composite materials sector, Hexapure has inherited a legacy of innovation and excellence.
+                            Hexapure was founded in 2015 with the vision of revolutionizing the wastewater treatment industry. We are renowned player in the composite materials sector, Hexapure has inherited a legacy of innovation and excellence.
                         </motion.p>
                     </motion.div>
 

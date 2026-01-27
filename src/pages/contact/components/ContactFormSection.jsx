@@ -279,17 +279,23 @@ const ContactFormSection = () => {
                     <h3 className="text-text-dark text-2xl font-bold mb-6">Follow our social network.</h3>
 
                     <div className="flex justify-center gap-6">
-                        {["facebook", "instagram", "linkedin_img"].map((icon, i) => (
+                        {[
+                            { name: "Facebook", href: "https://www.facebook.com/share/1KBv1sT3vV", icon: "facebook" },
+                            { name: "Instagram", href: "https://www.instagram.com/hexapurebiotanks", icon: "instagram" },
+                            { name: "LinkedIn", href: "#", icon: "linkedin_img" }
+                        ].map((social, i) => (
                             <motion.a
                                 key={i}
-                                href="#"
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 initial={{ opacity: 0, scale: 0.7 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ scale: 1.15 }}
                                 className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center"
                             >
-                                <img src={`/.netlify/images?url=/images/${icon}.png&w=50&fm=webp`} alt={icon} className="w-6 h-6" loading="lazy" />
+                                <img src={`/.netlify/images?url=/images/${social.icon}.png&w=50&fm=webp`} alt={social.name} className="w-6 h-6" loading="lazy" />
                             </motion.a>
                         ))}
                     </div>

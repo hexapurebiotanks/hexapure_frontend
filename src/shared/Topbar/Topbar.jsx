@@ -25,18 +25,28 @@ const TopBar = () => (
           </a>
         </div>
         <div className="flex gap-3">
-          <FacebookIcon
-            fontSize="small"
+          <a
+            href="https://www.facebook.com/share/1KBv1sT3vV"
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer transition-colors hover:text-[#CAF0F8]"
-          />
-          <InstagramIcon
-            fontSize="small"
+          >
+            <FacebookIcon fontSize="small" />
+          </a>
+          <a
+            href="https://www.instagram.com/hexapurebiotanks"
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer transition-colors hover:text-[#CAF0F8]"
-          />
-          <LinkedInIcon
-            fontSize="small"
+          >
+            <InstagramIcon fontSize="small" />
+          </a>
+          <a
+            href="#"
             className="cursor-pointer transition-colors hover:text-[#CAF0F8]"
-          />
+          >
+            <LinkedInIcon fontSize="small" />
+          </a>
         </div>
       </div>
     </Container>
