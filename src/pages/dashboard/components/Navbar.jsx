@@ -61,7 +61,7 @@ const TopNavbar = ({ searchQuery, onSearchChange }) => {
                 {/* Left Side - Logo */}
                 <div className="flex items-center">
                     <img
-                        src="/.netlify/images?url=/images/hexapure_logo.png&w=200&fm=webp"
+                        src="/.netlify/images?url=/images/hexapure_logo.webp&w=200&fm=webp"
                         alt="Company Logo"
                         className="h-8 w-auto"
                         loading="eager"
